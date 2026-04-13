@@ -1,39 +1,32 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { TodoList } from "./TodoList";
+import {TodoList} from "./TodoList"
 
-const meta: Meta<typeof TodoList> = {
+export default {
   title: "Components/TodoList",
   component: TodoList,
-  args: {
-    onToggle: (id: number) => alert(`Toggled item: ${id}`),
-  },
 };
 
-export default meta;
-type Story = StoryObj<typeof TodoList>;
-
-export const Empty: Story = {
+export const Empty = {
   args: {
     todos: [],
   },
 };
 
-export const MixedTodos: Story = {
+export const MixedTodos = {
   args: {
     todos: [
-      { id: 1, text: "Vásárlás", completed: false },
-      { id: 2, text: "Takarítás", completed: true },
-      { id: 3, text: "Tanulás", completed: false },
+      { id: 1, text: "Shopping", completed: false },
+      { id: 2, text: "Cleaning", completed: true },
+      { id: 3, text: "Building a snowman", completed: false },
     ],
   },
 };
 
-export const AllCompleted: Story = {
+export const AllDone = {
   args: {
     todos: [
-      { id: 1, text: "Mosogatás", completed: true },
-      { id: 2, text: "Porszívózás", completed: true },
-      { id: 3, text: "Email elküldése", completed: true },
+      { id: 1, text: "Shopping", completed: true },
+      { id: 2, text: "Cleaning", completed: true },
+      { id: 3, text: "Building a snowman", completed: true },
     ],
   },
 };

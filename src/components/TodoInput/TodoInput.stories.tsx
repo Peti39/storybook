@@ -1,54 +1,31 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
-import { TodoInput } from "./TodoInput";
+import {TodoInput} from "./TodoInput"
 
-const meta: Meta<typeof TodoInput> = {
-  title: "Components/TodoInput",
+export default {
+  title: "Components/TodoForm",
   component: TodoInput,
 };
 
-export default meta;
-type Story = StoryObj<typeof TodoInput>;
-
-export const EmptyInput: Story = {
-  render: () => {
-    const [value, setValue] = useState("");
-
-    return (
-      <TodoInput
-        value={value}
-        onChange={setValue}
-        onAdd={() => alert(`Hozzáadva: ${value || "üres érték"}`)}
-      />
-    );
+export const NoValue = {
+  data: {
+    value: "",
+    error: "",
+    onChange: () => { },
+    onSubmit: () => { },
   },
 };
-
-export const PrefilledInput: Story = {
-  render: () => {
-    const [value, setValue] = useState("Bevásárlás");
-
-    return (
-      <TodoInput
-        value={value}
-        onChange={setValue}
-        onAdd={() => alert(`Hozzáadva: ${value}`)}
-      />
-    );
+export const Value = {
+  data: {
+    value: "Make a cake",
+    error: "",
+    onChange: () => { },
+    onSubmit: () => { },
   },
 };
-
-export const DisabledInput: Story = {
-  render: () => {
-    const [value, setValue] = useState("Nem szerkeszthető");
-
-    return (
-      <TodoInput
-        value={value}
-        onChange={setValue}
-        onAdd={() => alert("Nem fut le")}
-        disabled
-      />
-    );
+export const Error = {
+  data: {
+    value: "",
+    error: "Invalid input",
+    onChange: () => { },
+    onSubmit: () => { },
   },
 };
